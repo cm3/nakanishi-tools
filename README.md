@@ -2,7 +2,7 @@
 
 NIHU の IIIF Image API を使いながら、別ホストの Presentation API 2 / 3 Manifest で「同じ面の別撮影画像」を表す試験です。画像ファイルはこのリポジトリに置きません。[構造化パターンの比較](docs/patterns.md)に開発者向けの取得経路を記載しています。
 
-同じ面の複数撮影画像で領域アノテーションを使う用途には、**v3 Choiceを推奨**します。表面・裏面を各1 Canvasにして撮影方式をそのCanvas内で選ぶ構造です。v2 Rangeとv3 Rangeは各画像が別Canvasになるため、注釈を別撮影画像にも表示するには利用側の対応付けが必要です。前提と制約は[推奨理由](docs/patterns.md#推奨-アノテーション利用には-v3-choice)を参照してください。
+同じ面の複数撮影画像で領域アノテーションを使う用途には、**v3 Choiceを第一候補**とします。表面・裏面を各1 Canvasにして、各面の5撮影画像をそのCanvas内に置く構造です。ビューアのページ表示は2枚でも、Manifestには計10画像が入っています。利用側で撮影方式を切り替えられるかは別途確認が必要です。v2 Rangeとv3 Rangeは各画像が別Canvasになるため、注釈を別撮影画像にも表示するには利用側の対応付けが必要です。前提と制約は[推奨理由](docs/patterns.md#推奨-アノテーション利用には-v3-choice)を参照してください。
 
 ## 内容
 
@@ -24,7 +24,7 @@ NIHU の IIIF Image API を使いながら、別ホストの Presentation API 2 
 3. `registration/0209-manifest-test.tsv` を試験登録し、NIHUの資料ページの Universal Viewer が外部 Manifest を読み込むか確認する。
 4. v2では10 Canvas の表示と画像表示を確認する。v3ではRangeとChoiceを別々の試験レコードで確認する。`field_filepath` は試験TSVでは指定していない。
 
-登録仕様は `field_manifest` を「外部サイトのマニフェストを利用してviewerを表示させる場合」の項目としている。初版の `oa:Choice` はNIHUに設置されたUniversal Viewerで「There is no dataUri to fetch」を起こしたため、画像を各Canvasの直接 `resource` に変更した。同一面の別撮影という機械可読な関係は `structures` の `sc:Range` と、`seeAlso` の `images.json` にある `view_id` で取得する。
+登録仕様は `field_manifest` を「外部サイトのマニフェストを利用してviewerを表示させる場合」の項目としている。初版のv2 `oa:Choice` 試作時にNIHU設置版Universal Viewerで「There is no dataUri to fetch」が出たため、v2公開例を各Canvasに画像を直接置くRange構成に変更した。ただし、当時のエラー原因をChoiceと特定できておらず、v2 Choiceの可否は未検証。同一面の別撮影という機械可読な関係は、現在のv2公開例では `structures` の `sc:Range` と、`seeAlso` の `images.json` にある `view_id` で取得する。
 
 ## データ上の前提
 
