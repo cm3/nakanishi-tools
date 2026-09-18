@@ -1,2 +1,2 @@
-title	field_title	field_identifier	field_manifest	field_relation	field_abstract	field_weight
-【IIIF比較実験｜v3 Choice】文学書　紙片	文学書　紙片	NAKANISHI_0209_V3_CHOICE_TEST	https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/manifest-v3-choice.json		Presentation API v3のChoiceで同じ面の別撮影画像を選択する試験レコード。	1002
+title	field_title	field_identifier	field_source	field_manifest	field_relation	field_abstract	field_weight
+【IIIF比較実験｜v3 Choice】文学書　紙片	文学書　紙片	NAKANISHI_0209_V3_CHOICE_TEST	https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FFront%2F209_F_VL.tif/full/200,/0/default.jpg	https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/manifest-v3-choice.json		Presentation API v3のChoiceで同じ面の別撮影画像を選択する試験レコード。	1002
