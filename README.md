@@ -11,6 +11,7 @@ NIHU の IIIF Image API を使いながら、別ホストの Presentation API 2 
 - `manifests/NAKANISHI_0209/images-v3-*.json`: v3各パターンの対応表。
 - `registration/0209-manifest-test.tsv`: 新しい試験レコードIDで `field_manifest` を指定する最小限の登録用 TSV。元の `NAKANISHI_0209` は上書きしない。
 - `registration/0209-v3-ranges-test.tsv`、`0209-v3-choice-test.tsv`: v3の2パターンを別IDで試す最小限の登録用 TSV。親プロジェクトの `work/2026-09-18-external-manifest-pilot/` には元の34列を維持したCSVもある。
+- 3件の `title` は公開一覧で区別できるよう、`【IIIF比較実験｜v2 Range】`、`【IIIF比較実験｜v3 Range】`、`【IIIF比較実験｜v3 Choice】` で始める。`field_title` の原資料名は共通。
 - `scripts/build_pilot.py`: 元の登録CSVと画像API `info.json` から上記JSONを再生成。
 - `scripts/rebuild.sh`: 親プロジェクトの作業用CSVを参照して再生成する補助スクリプト。
 
