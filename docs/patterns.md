@@ -1,12 +1,15 @@
 # 同一資料・別撮影画像の構造化サンプル
 
-同じ `NAKANISHI_0209` の10画像を使い、画像はすべて NIHU Image API v2 から配信する。Manifest の配信と画像配信のサーバーは独立している。各Manifestの `id` / `@id` はそのJSONの公開URLに一致する。
+同じ `NAKANISHI_0209` の10画像を使う。既存の3例は NIHU Image API 2.1、新しいChoice試験版は Image API 3.0 から画像を配信する。Manifest の配信と画像配信のサーバーは独立している。各Manifestの `id` / `@id` はそのJSONの公開URLに一致する。
 
 | パターン | Manifest | 撮影対象のまとまり | 画像の選択 | NIHU設置版ビューアでの確認 |
 | --- | --- | --- | --- | --- |
 | v2 Canvas + Range | [manifest.json](../manifests/NAKANISHI_0209/manifest.json) | `structures` の表面・裏面の `sc:Range` | 各画像は独立したCanvas | 2026-09-18に表示を確認 |
 | v3 Canvas + Range | [manifest-v3-ranges.json](../manifests/NAKANISHI_0209/manifest-v3-ranges.json) | `structures` の表面・裏面の `Range` | 各画像は独立したCanvas | 2026-09-18に画像表示を確認 |
 | v3 Canvas + Choice | [manifest-v3-choice.json](../manifests/NAKANISHI_0209/manifest-v3-choice.json) | 表面・裏面それぞれ1 Canvas | Canvas内の `Choice.items` に各5画像 | 公式UV4では撮影方式を切替可能。NIHU設置版では表裏2ページは表示するが、撮影方式は切替不可。注釈の挙動は未確認 |
+| v3 Choice + Image API 3.0 | [manifest-v3-choice-image3.json](../manifests/NAKANISHI_0209/manifest-v3-choice-image3.json) | 表面・裏面それぞれ1 Canvas | 上のChoiceと同じ10画像。画像サービスは `ImageService3` | 公開後のビューア表示は未確認 |
+
+Image API 3.0 版は、Presentation API 3.0 のChoiceを変えず、画像・サムネイルのURLを `/iiif/3/` に、サービス記述を `type: ImageService3` と `profile: level2` にしたもの。対応表は [images-v3-choice-image3.json](../manifests/NAKANISHI_0209/images-v3-choice-image3.json)。NIHUの公開Image API 3.0で `info.json` と画像を取得できることを確認して生成している。GitHub Pagesへのpush後、[公式UV4で開く](https://uv-v4.netlify.app/#?manifest=https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/manifest-v3-choice-image3.json)ことができる。NIHUの資料ページで試すには別の登録レコードの `field_manifest` にこのURLを設定する。既存の比較レコードは変更していない。
 
 公開一覧では3件を並べて比較する想定。登録レコードの `title` は `【IIIF比較実験｜v2 Range】文学書　紙片`、`【IIIF比較実験｜v3 Range】文学書　紙片`、`【IIIF比較実験｜v3 Choice】文学書　紙片` とし、原資料名を表す `field_title` は共通に保つ。登録IDと `field_weight` は各パターンで別にする。
 
@@ -51,3 +54,4 @@ NIHU設置版ビューアはv3 Canvasからサムネイルの画像サービス�
 - [Presentation API 3.0](https://iiif.io/api/presentation/3.0/)
 - [IIIF Cookbook: 複数画像のChoice](https://iiif.io/api/cookbook/recipe/0033-choice/)
 - [IIIF Cookbook: Image APIを使うManifest](https://iiif.io/api/cookbook/recipe/0005-image-service/)
+- [Image API 3.0](https://iiif.io/api/image/3.0/)

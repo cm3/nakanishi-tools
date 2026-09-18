@@ -11,7 +11,7 @@ from urllib.request import urlopen
 
 MODALITIES = ["VL", "IR", "UVF", "PLwDL", "PLwoDL"]
 SIDES = {"Front": "表面", "Back": "裏面"}
-IMAGE_API = "https://iiif.nihu.jp/iiif/2"
+IMAGE_API = "https://iiif.nihu.jp/iiif"
 
 
 def read_record(path: Path, identifier: str) -> dict[str, str]:
@@ -22,7 +22,7 @@ def read_record(path: Path, identifier: str) -> dict[str, str]:
     return rows[0]
 
 
-def image_entry(encoded_path: str, dirname: str) -> dict:
+def image_entry(encoded_path: str, dirname: str, api_version: int = 2) -> dict:
     relative_path = unquote(encoded_path)
     parts = relative_path.split("/")
     if len(parts) != 3 or parts[1] not in SIDES:
@@ -31,11 +31,14 @@ def image_entry(encoded_path: str, dirname: str) -> dict:
     modality = next((code for code in MODALITIES if filename.endswith(f"_{code}.tif")), None)
     if modality is None:
         raise ValueError(f"Unknown imaging modality: {relative_path}")
-    service_id = f"{IMAGE_API}/{quote(dirname + '/' + relative_path, safe='')}"
+    service_id = f"{IMAGE_API}/{api_version}/{quote(dirname + '/' + relative_path, safe='')}"
     with urlopen(f"{service_id}/info.json", timeout=20) as response:
         info = json.load(response)
-    if info.get("@id") != service_id:
-        raise ValueError(f"Unexpected Image API identifier: {info.get('@id')}")
+    id_field = "id" if api_version == 3 else "@id"
+    if info.get(id_field) != service_id:
+        raise ValueError(f"Unexpected Image API identifier: {info.get(id_field)}")
+    if api_version == 3 and info.get("type") != "ImageService3":
+        raise ValueError(f"Unexpected Image API type: {info.get('type')}")
     width, height = int(info["width"]), int(info["height"])
     scale = min(1.0, 3000 / width, 3000 / height)
     return {
@@ -43,6 +46,7 @@ def image_entry(encoded_path: str, dirname: str) -> dict:
         "side": parts[1],
         "modality": modality,
         "service_id": service_id,
+        "api_version": api_version,
         "image_url": f"{service_id}/full/!3000,3000/0/default.jpg",
         "width": round(width * scale),
         "height": round(height * scale),
@@ -55,6 +59,16 @@ def language(value: str) -> dict[str, list[str]]:
     return {"ja": [value]}
 
 
+def v3_service(image: dict) -> dict:
+    if image["api_version"] == 3:
+        return {"id": image["service_id"], "type": "ImageService3", "profile": "level2"}
+    return {
+        "id": image["service_id"],
+        "type": "ImageService2",
+        "profile": "http://iiif.io/api/image/2/level2.json",
+    }
+
+
 def v3_thumbnail(image: dict) -> dict:
     return {
         "id": f"{image['service_id']}/full/200,/0/default.jpg",
@@ -62,11 +76,7 @@ def v3_thumbnail(image: dict) -> dict:
         "format": "image/jpeg",
         "width": 200,
         "height": round(image["source_height"] * 200 / image["source_width"]),
-        "service": [{
-            "id": image["service_id"],
-            "type": "ImageService2",
-            "profile": "http://iiif.io/api/image/2/level2.json",
-        }],
+        "service": [v3_service(image)],
     }
 
 
@@ -79,11 +89,7 @@ def v3_image(image: dict) -> dict:
         "width": image["width"],
         "height": image["height"],
         "thumbnail": [v3_thumbnail(image)],
-        "service": [{
-            "id": image["service_id"],
-            "type": "ImageService2",
-            "profile": "http://iiif.io/api/image/2/level2.json",
-        }],
+        "service": [v3_service(image)],
     }
 
 
@@ -212,6 +218,48 @@ def build_v3_patterns(base: str, title: str, object_id: str,
     ]
 
 
+def build_v3_choice_image3(base: str, title: str, object_id: str,
+                           images: list[dict]) -> list[tuple[str, dict]]:
+    choice_base = f"{base}/v3-choice-image3"
+    canvases = []
+    rows = []
+    for side in SIDES:
+        side_images = sorted(
+            (image for image in images if image["side"] == side),
+            key=lambda image: MODALITIES.index(image["modality"]),
+        )
+        if not side_images:
+            continue
+        canvas_id = f"{choice_base}/canvas/{side.lower()}"
+        canvases.append(v3_canvas(
+            choice_base, canvas_id, SIDES[side],
+            {"type": "Choice", "items": [v3_image(image) for image in side_images]},
+            max(image["width"] for image in side_images),
+            max(image["height"] for image in side_images),
+            v3_thumbnail(side_images[0]),
+        ))
+        rows.extend({
+            "canvas_id": canvas_id,
+            "view_id": side.lower(),
+            "modality_code": image["modality"],
+            "image_service_id": image["service_id"],
+            "is_default": image["modality"] == "VL",
+        } for image in side_images)
+    manifest = v3_manifest(
+        base, "manifest-v3-choice-image3.json", title,
+        "images-v3-choice-image3.json", canvases,
+    )
+    return [
+        ("manifest-v3-choice-image3.json", manifest),
+        ("images-v3-choice-image3.json", {
+            "schema_version": 1,
+            "object_id": object_id,
+            "manifest_id": manifest["id"],
+            "images": rows,
+        }),
+    ]
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--csv", type=Path, required=True)
@@ -332,11 +380,16 @@ def main() -> None:
         base, record["field_title"] or record["title"],
         record["field_identifier"], images,
     ))
+    images3 = [image_entry(path, dirname, api_version=3) for path in paths]
+    outputs.extend(build_v3_choice_image3(
+        base, record["field_title"] or record["title"],
+        record["field_identifier"], images3,
+    ))
     for name, data in outputs:
         (args.output / name).write_text(
             json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
-    print(f"Wrote 3 manifests for {len(images)} images to {args.output}")
+    print(f"Wrote 4 manifests for {len(images)} images to {args.output}")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,482 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/manifest-v3-choice-image3.json",
+  "type": "Manifest",
+  "label": {
+    "ja": [
+      "文学書　紙片"
+    ]
+  },
+  "thumbnail": [
+    {
+      "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_VL.tif/full/200,/0/default.jpg",
+      "type": "Image",
+      "format": "image/jpeg",
+      "width": 200,
+      "height": 132,
+      "service": [
+        {
+          "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_VL.tif",
+          "type": "ImageService3",
+          "profile": "level2"
+        }
+      ]
+    }
+  ],
+  "seeAlso": [
+    {
+      "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/images-v3-choice-image3.json",
+      "type": "Dataset",
+      "label": {
+        "ja": [
+          "撮影画像の対応表"
+        ]
+      },
+      "format": "application/json"
+    }
+  ],
+  "items": [
+    {
+      "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/v3-choice-image3/canvas/front",
+      "type": "Canvas",
+      "label": {
+        "ja": [
+          "表面"
+        ]
+      },
+      "width": 3000,
+      "height": 1977,
+      "thumbnail": [
+        {
+          "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_VL.tif/full/200,/0/default.jpg",
+          "type": "Image",
+          "format": "image/jpeg",
+          "width": 200,
+          "height": 132,
+          "service": [
+            {
+              "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_VL.tif",
+              "type": "ImageService3",
+              "profile": "level2"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/v3-choice-image3/page/front",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/v3-choice-image3/annotation/front",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "type": "Choice",
+                "items": [
+                  {
+                    "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_VL.tif/full/!3000,3000/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "label": {
+                      "ja": [
+                        "VL"
+                      ]
+                    },
+                    "width": 3000,
+                    "height": 1977,
+                    "thumbnail": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_VL.tif/full/200,/0/default.jpg",
+                        "type": "Image",
+                        "format": "image/jpeg",
+                        "width": 200,
+                        "height": 132,
+                        "service": [
+                          {
+                            "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_VL.tif",
+                            "type": "ImageService3",
+                            "profile": "level2"
+                          }
+                        ]
+                      }
+                    ],
+                    "service": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_VL.tif",
+                        "type": "ImageService3",
+                        "profile": "level2"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_IR.tif/full/!3000,3000/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "label": {
+                      "ja": [
+                        "IR"
+                      ]
+                    },
+                    "width": 3000,
+                    "height": 1977,
+                    "thumbnail": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_IR.tif/full/200,/0/default.jpg",
+                        "type": "Image",
+                        "format": "image/jpeg",
+                        "width": 200,
+                        "height": 132,
+                        "service": [
+                          {
+                            "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_IR.tif",
+                            "type": "ImageService3",
+                            "profile": "level2"
+                          }
+                        ]
+                      }
+                    ],
+                    "service": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_IR.tif",
+                        "type": "ImageService3",
+                        "profile": "level2"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_UVF.tif/full/!3000,3000/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "label": {
+                      "ja": [
+                        "UVF"
+                      ]
+                    },
+                    "width": 3000,
+                    "height": 1977,
+                    "thumbnail": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_UVF.tif/full/200,/0/default.jpg",
+                        "type": "Image",
+                        "format": "image/jpeg",
+                        "width": 200,
+                        "height": 132,
+                        "service": [
+                          {
+                            "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_UVF.tif",
+                            "type": "ImageService3",
+                            "profile": "level2"
+                          }
+                        ]
+                      }
+                    ],
+                    "service": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_UVF.tif",
+                        "type": "ImageService3",
+                        "profile": "level2"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_PLwDL.tif/full/!3000,3000/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "label": {
+                      "ja": [
+                        "PLwDL"
+                      ]
+                    },
+                    "width": 3000,
+                    "height": 1977,
+                    "thumbnail": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_PLwDL.tif/full/200,/0/default.jpg",
+                        "type": "Image",
+                        "format": "image/jpeg",
+                        "width": 200,
+                        "height": 132,
+                        "service": [
+                          {
+                            "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_PLwDL.tif",
+                            "type": "ImageService3",
+                            "profile": "level2"
+                          }
+                        ]
+                      }
+                    ],
+                    "service": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_PLwDL.tif",
+                        "type": "ImageService3",
+                        "profile": "level2"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_PLwoDL.tif/full/!3000,3000/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "label": {
+                      "ja": [
+                        "PLwoDL"
+                      ]
+                    },
+                    "width": 3000,
+                    "height": 1977,
+                    "thumbnail": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_PLwoDL.tif/full/200,/0/default.jpg",
+                        "type": "Image",
+                        "format": "image/jpeg",
+                        "width": 200,
+                        "height": 132,
+                        "service": [
+                          {
+                            "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_PLwoDL.tif",
+                            "type": "ImageService3",
+                            "profile": "level2"
+                          }
+                        ]
+                      }
+                    ],
+                    "service": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_PLwoDL.tif",
+                        "type": "ImageService3",
+                        "profile": "level2"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "target": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/v3-choice-image3/canvas/front"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/v3-choice-image3/canvas/back",
+      "type": "Canvas",
+      "label": {
+        "ja": [
+          "裏面"
+        ]
+      },
+      "width": 3000,
+      "height": 1982,
+      "thumbnail": [
+        {
+          "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FBack%2F209_B_VL.tif/full/200,/0/default.jpg",
+          "type": "Image",
+          "format": "image/jpeg",
+          "width": 200,
+          "height": 132,
+          "service": [
+            {
+              "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FBack%2F209_B_VL.tif",
+              "type": "ImageService3",
+              "profile": "level2"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/v3-choice-image3/page/back",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/v3-choice-image3/annotation/back",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "type": "Choice",
+                "items": [
+                  {
+                    "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FBack%2F209_B_VL.tif/full/!3000,3000/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "label": {
+                      "ja": [
+                        "VL"
+                      ]
+                    },
+                    "width": 3000,
+                    "height": 1982,
+                    "thumbnail": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FBack%2F209_B_VL.tif/full/200,/0/default.jpg",
+                        "type": "Image",
+                        "format": "image/jpeg",
+                        "width": 200,
+                        "height": 132,
+                        "service": [
+                          {
+                            "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FBack%2F209_B_VL.tif",
+                            "type": "ImageService3",
+                            "profile": "level2"
+                          }
+                        ]
+                      }
+                    ],
+                    "service": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FBack%2F209_B_VL.tif",
+                        "type": "ImageService3",
+                        "profile": "level2"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FBack%2F209_B_IR.tif/full/!3000,3000/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "label": {
+                      "ja": [
+                        "IR"
+                      ]
+                    },
+                    "width": 3000,
+                    "height": 1982,
+                    "thumbnail": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FBack%2F209_B_IR.tif/full/200,/0/default.jpg",
+                        "type": "Image",
+                        "format": "image/jpeg",
+                        "width": 200,
+                        "height": 132,
+                        "service": [
+                          {
+                            "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FBack%2F209_B_IR.tif",
+                            "type": "ImageService3",
+                            "profile": "level2"
+                          }
+                        ]
+                      }
+                    ],
+                    "service": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FBack%2F209_B_IR.tif",
+                        "type": "ImageService3",
+                        "profile": "level2"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FBack%2F209_B_UVF.tif/full/!3000,3000/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "label": {
+                      "ja": [
+                        "UVF"
+                      ]
+                    },
+                    "width": 3000,
+                    "height": 1982,
+                    "thumbnail": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FBack%2F209_B_UVF.tif/full/200,/0/default.jpg",
+                        "type": "Image",
+                        "format": "image/jpeg",
+                        "width": 200,
+                        "height": 132,
+                        "service": [
+                          {
+                            "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FBack%2F209_B_UVF.tif",
+                            "type": "ImageService3",
+                            "profile": "level2"
+                          }
+                        ]
+                      }
+                    ],
+                    "service": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FBack%2F209_B_UVF.tif",
+                        "type": "ImageService3",
+                        "profile": "level2"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FBack%2F209_B_PLwDL.tif/full/!3000,3000/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "label": {
+                      "ja": [
+                        "PLwDL"
+                      ]
+                    },
+                    "width": 3000,
+                    "height": 1982,
+                    "thumbnail": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FBack%2F209_B_PLwDL.tif/full/200,/0/default.jpg",
+                        "type": "Image",
+                        "format": "image/jpeg",
+                        "width": 200,
+                        "height": 132,
+                        "service": [
+                          {
+                            "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FBack%2F209_B_PLwDL.tif",
+                            "type": "ImageService3",
+                            "profile": "level2"
+                          }
+                        ]
+                      }
+                    ],
+                    "service": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FBack%2F209_B_PLwDL.tif",
+                        "type": "ImageService3",
+                        "profile": "level2"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FBack%2F209_B_PLwoDL.tif/full/!3000,3000/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "label": {
+                      "ja": [
+                        "PLwoDL"
+                      ]
+                    },
+                    "width": 3000,
+                    "height": 1982,
+                    "thumbnail": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FBack%2F209_B_PLwoDL.tif/full/200,/0/default.jpg",
+                        "type": "Image",
+                        "format": "image/jpeg",
+                        "width": 200,
+                        "height": 132,
+                        "service": [
+                          {
+                            "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FBack%2F209_B_PLwoDL.tif",
+                            "type": "ImageService3",
+                            "profile": "level2"
+                          }
+                        ]
+                      }
+                    ],
+                    "service": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FBack%2F209_B_PLwoDL.tif",
+                        "type": "ImageService3",
+                        "profile": "level2"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "target": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/v3-choice-image3/canvas/back"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

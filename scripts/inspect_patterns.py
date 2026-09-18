@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Show how the three sample Manifests group Image API services."""
+"""Show how the sample Manifests group Image API services."""
 
 import json
 from pathlib import Path
@@ -55,6 +55,7 @@ def main() -> None:
         ("v2-ranges", "manifest.json", v2_ranges),
         ("v3-ranges", "manifest-v3-ranges.json", v3_ranges),
         ("v3-choice", "manifest-v3-choice.json", v3_choice),
+        ("v3-choice-image3", "manifest-v3-choice-image3.json", v3_choice),
     ]
     for name, filename, extract in patterns:
         manifest = json.loads((ROOT / filename).read_text(encoding="utf-8"))
