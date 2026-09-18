@@ -5,14 +5,29 @@
 | パターン | Manifest | 撮影対象のまとまり | 画像の選択 | NIHU設置版ビューアでの確認 |
 | --- | --- | --- | --- | --- |
 | v2 Canvas + Range | [manifest.json](../manifests/NAKANISHI_0209/manifest.json) | `structures` の表面・裏面の `sc:Range` | 各画像は独立したCanvas | 2026-09-18に表示を確認 |
-| v3 Canvas + Range | [manifest-v3-ranges.json](../manifests/NAKANISHI_0209/manifest-v3-ranges.json) | `structures` の表面・裏面の `Range` | 各画像は独立したCanvas | 未確認 |
-| v3 Canvas + Choice | [manifest-v3-choice.json](../manifests/NAKANISHI_0209/manifest-v3-choice.json) | 表面・裏面それぞれ1 Canvas | Canvas内の `Choice.items` から1画像を選択 | 未確認 |
+| v3 Canvas + Range | [manifest-v3-ranges.json](../manifests/NAKANISHI_0209/manifest-v3-ranges.json) | `structures` の表面・裏面の `Range` | 各画像は独立したCanvas | 2026-09-18に画像表示を確認 |
+| v3 Canvas + Choice | [manifest-v3-choice.json](../manifests/NAKANISHI_0209/manifest-v3-choice.json) | 表面・裏面それぞれ1 Canvas | Canvas内の `Choice.items` から1画像を選択 | 2026-09-18に画像表示を確認。切替操作と注釈の挙動は未確認 |
 
 公開一覧では3件を並べて比較する想定。登録レコードの `title` は `【IIIF比較実験｜v2 Range】文学書　紙片`、`【IIIF比較実験｜v3 Range】文学書　紙片`、`【IIIF比較実験｜v3 Choice】文学書　紙片` とし、原資料名を表す `field_title` は共通に保つ。登録IDと `field_weight` は各パターンで別にする。
 
-`Choice` は同じ対象に対する相互に選択可能な画像を示す。`Range` はCanvasのグループを示し、それだけでは「画像を切り替える」動作は指示しない。v3 Choiceは撮影方式の違いをIIIFの標準構造で最も直接的に表す。一方、NIHUの設置版Universal Viewerではv2 Choiceを表示できなかったため、v3 Choiceの表示も試験する必要がある。
+## 推奨: アノテーション利用には v3 Choice
 
-v3の2ファイルは [IIIF Presentation Validatorのv3 JSON Schema](https://github.com/IIIF/presentation-validator/blob/main/schema/iiif_3_0.json) で検証した。Manifestから取り出した撮影対象2群・画像10件と、それぞれの `seeAlso` 対応表も一致する。ビューアの表示と切替操作は別途確認する。
+今回の主目的は「同じ資料の同じ面を異なる方法で撮影した画像を切り替え、面上の注釈を使う」こと。v3 Choiceでは、表面と裏面を各1 Canvasにし、そのCanvasのpainting Annotationの `body` に5撮影方式の `Choice` を置く。利用側はCanvas IDを面の識別子として扱い、そのCanvas上の領域に付けた注釈を撮影方式の切替後にも表示できる。IIIFの[複数画像のChoiceの用例](https://iiif.io/api/cookbook/recipe/0033-choice/)も、位置を合わせた撮影画像とCanvas対象の注釈を想定している。
+
+| 観点 | v3 Choice（推奨） | v2 Range / v3 Range（比較用） |
+| --- | --- | --- |
+| 10画像の表現 | 表裏2 Canvas、各Canvasに5画像のChoice | 10画像がそれぞれ独立したCanvas |
+| 同じ面の別撮影画像という関係 | 1 Canvasの選択肢として直接表現 | 表裏Rangeに属するCanvasとして表現。各Canvasの撮影方式の識別にはラベルや `seeAlso` の対応表を参照 |
+| 領域注釈の対象 | 表面または裏面のCanvasを対象にできる | 特定の撮影画像のCanvasを対象にする。別撮影画像へ表示するには利用側が同じ面のCanvasを対応付け、注釈を複製または座標変換する必要がある |
+| ページ送り | 表面・裏面の2 Canvas | 撮影方式もページとして並ぶ10 Canvas |
+
+Rangeは閲覧順序や章・面などのまとまりを表す標準構造であり、Rangeに入れた複数Canvasを同一座標の画像として扱う指示ではない。このため、この用途ではRangeだけを根拠に領域注釈を共有できない。`seeAlso` の `images*.json` は撮影方式を固定コードで取得する補助データだが、独立Canvas間の注釈共有を自動化する標準機能ではない。
+
+ここでの「v2を推奨しない」は、**この試験用v2 Manifest**が10 Canvas + Rangeであることと、試作したv2 `oa:Choice` がNIHU設置版Universal Viewerで画像を表示できなかったという実機結果による。Presentation API v2そのものがChoiceを禁止しているという意味ではない。v2 Rangeは既存ビューアとの互換性を確認するための比較・フォールバックとして残す。
+
+なお「同一アイテム」は表裏を含む資料全体の関係で、矩形領域の注釈を表面から裏面へ同じ座標で表示してよいという意味ではない。v3 Choiceでも、同じ面の別撮影画像が位置合わせされていなければ領域注釈はずれる。正確な撮影条件と画像間の位置合わせ、IIIF Semantic EditorによるChoiceの読み込み・切替・Canvas対象注釈の表示は別途検証する。注釈をManifestで表現・配信する場合は[Presentation API 3.0のCanvas annotations](https://iiif.io/api/presentation/3.0/#annotations)を参照する。
+
+v3の2ファイルは [IIIF Presentation Validatorのv3 JSON Schema](https://github.com/IIIF/presentation-validator/blob/main/schema/iiif_3_0.json) で検証した。Manifestから取り出した撮影対象2群・画像10件と、それぞれの `seeAlso` 対応表も一致する。Choiceの切替操作と注釈の挙動は別途確認する。
 
 NIHU設置版ビューアはv3 Canvasからサムネイルの画像サービスを推定できず、画像IDが欠けた `/full/200,/0/default.jpg` を要求した。v3サンプルではManifest、Canvas、Choice内の各画像に `thumbnail` を明示し、NIHU Image APIの絶対URLを指定する。
 

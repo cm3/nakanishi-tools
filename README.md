@@ -2,6 +2,8 @@
 
 NIHU の IIIF Image API を使いながら、別ホストの Presentation API 2 / 3 Manifest で「同じ面の別撮影画像」を表す試験です。画像ファイルはこのリポジトリに置きません。[構造化パターンの比較](docs/patterns.md)に開発者向けの取得経路を記載しています。
 
+同じ面の複数撮影画像で領域アノテーションを使う用途には、**v3 Choiceを推奨**します。表面・裏面を各1 Canvasにして撮影方式をそのCanvas内で選ぶ構造です。v2 Rangeとv3 Rangeは各画像が別Canvasになるため、注釈を別撮影画像にも表示するには利用側の対応付けが必要です。前提と制約は[推奨理由](docs/patterns.md#推奨-アノテーション利用には-v3-choice)を参照してください。
+
 ## 内容
 
 - `manifests/NAKANISHI_0209/manifest.json`: 表面と裏面のVL・IR・UVF・PLwDL・PLwoDL を各1 Canvas にした Manifest。`sc:Range` で表面と裏面の各5 Canvas をグループ化する。NIHUに設置されたUniversal Viewerで画像URLを取得できる形。
