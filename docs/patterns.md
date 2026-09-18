@@ -6,7 +6,7 @@
 | --- | --- | --- | --- | --- |
 | v2 Canvas + Range | [manifest.json](../manifests/NAKANISHI_0209/manifest.json) | `structures` の表面・裏面の `sc:Range` | 各画像は独立したCanvas | 2026-09-18に表示を確認 |
 | v3 Canvas + Range | [manifest-v3-ranges.json](../manifests/NAKANISHI_0209/manifest-v3-ranges.json) | `structures` の表面・裏面の `Range` | 各画像は独立したCanvas | 2026-09-18に画像表示を確認 |
-| v3 Canvas + Choice | [manifest-v3-choice.json](../manifests/NAKANISHI_0209/manifest-v3-choice.json) | 表面・裏面それぞれ1 Canvas | Canvas内の `Choice.items` に各5画像 | 表裏2ページは表示。現行NIHU画面では他の撮影方式を選ぶ操作が見つからない。注釈の挙動は未確認 |
+| v3 Canvas + Choice | [manifest-v3-choice.json](../manifests/NAKANISHI_0209/manifest-v3-choice.json) | 表面・裏面それぞれ1 Canvas | Canvas内の `Choice.items` に各5画像 | 公式UV4では撮影方式を切替可能。NIHU設置版では表裏2ページは表示するが、撮影方式は切替不可。注釈の挙動は未確認 |
 
 公開一覧では3件を並べて比較する想定。登録レコードの `title` は `【IIIF比較実験｜v2 Range】文学書　紙片`、`【IIIF比較実験｜v3 Range】文学書　紙片`、`【IIIF比較実験｜v3 Choice】文学書　紙片` とし、原資料名を表す `field_title` は共通に保つ。登録IDと `field_weight` は各パターンで別にする。
 
@@ -25,13 +25,13 @@ Rangeは閲覧順序や章・面などのまとまりを表す標準構造であ
 
 この比較で推奨度が低いのは、**現在公開しているv2 Range案とv3 Range案**である。v2の仕様全体がこの用途に不向きという意味ではない。初期にはv2 `oa:Choice` で表裏2 Canvas・計10画像とした試作もあったが、当時の表示エラーはキャッシュなど他の要因と切り分けられていない。その試作は現在公開しておらず、v2 Choiceの互換性について結論は出していない。
 
-NIHU設置版ビューアでv3 Choiceの**表裏2ページが表示されること**と、各ページの**5撮影方式を選択できること**は別の確認事項。現行画面では切替操作が見つからず、利用者は残りの撮影画像を画面上で選べない。この場合もManifestからは10画像を取得できるが、実用にはIIIF Semantic Editorなど利用側のChoice対応が必要になる。10画像をすべてページ送りで見せたい場合は、Range案が適する。
+NIHU設置版ビューアでv3 Choiceの**表裏2ページが表示されること**と、各ページの**5撮影方式を選択できること**は別の確認事項。2026-09-18の利用者確認では、公式UV4でこのManifestの撮影方式を切り替えられた一方、NIHU設置版では切り替えられなかった。Manifestには計10画像が含まれ、UV4で動作するため、少なくとも「Manifestに2画像しかない」という問題ではない。NIHU画面で10画像をすべてページ送りで見せたい場合は、Range案が適する。
 
-NIHUの資料ページは `/libraries/uv/uv.html` をiframeで読み込む。IIIFの[ビューア対応表](https://iiif.io/api/cookbook/recipe/matrix/)ではUniversal Viewerが[複数画像のChoice](https://iiif.io/api/cookbook/recipe/0033-choice/)に対応しており、[公式UV4でこのManifestを開く](https://uv-v4.netlify.app/#?manifest=https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/manifest-v3-choice.json)ことで、設置版との差を試せる。ただしNIHU設置版の正確な版番号と、UV4でこの10画像の切替が動作するかは未確認。UV4で成功した場合は、NIHU側でビューア一式を検証環境に更新し、iframe連携・表示設定・既存資料への影響も確認する。CSVやManifestだけでNIHU設置版の切替UIを有効化できるとは限らない。
+NIHUの資料ページは `/libraries/uv/uv.html` をiframeで読み込む。IIIFの[ビューア対応表](https://iiif.io/api/cookbook/recipe/matrix/)でもUniversal Viewerは[複数画像のChoice](https://iiif.io/api/cookbook/recipe/0033-choice/)に対応とされ、[公式UV4でこのManifestを開く](https://uv-v4.netlify.app/#?manifest=https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/manifest-v3-choice.json)試験でも切替を確認した。NIHU設置版の公開 `uv.html` と `uv.js` には製品版番号の明示が見つからず、正確な版は未特定（`uv.js` 内の依存ライブラリの版番号はUV本体の版番号ではない）。NIHU側で更新を検討する場合は、設置版の管理情報で版を確認し、UV4を検証環境に導入してiframe連携・表示設定・既存資料への影響を確認する。注釈エディタでのChoice対応は別途検証する。
 
 なお「同一アイテム」は表裏を含む資料全体の関係で、矩形領域の注釈を表面から裏面へ同じ座標で表示してよいという意味ではない。v3 Choiceでも、同じ面の別撮影画像が位置合わせされていなければ領域注釈はずれる。正確な撮影条件と画像間の位置合わせ、IIIF Semantic EditorによるChoiceの読み込み・切替・Canvas対象注釈の表示は別途検証する。注釈をManifestで表現・配信する場合は[Presentation API 3.0のCanvas annotations](https://iiif.io/api/presentation/3.0/#annotations)を参照する。
 
-v3の2ファイルは [IIIF Presentation Validatorのv3 JSON Schema](https://github.com/IIIF/presentation-validator/blob/main/schema/iiif_3_0.json) で検証した。Manifestから取り出した撮影対象2群・画像10件と、それぞれの `seeAlso` 対応表も一致する。Choiceの切替操作と注釈の挙動は別途確認する。
+v3の2ファイルは [IIIF Presentation Validatorのv3 JSON Schema](https://github.com/IIIF/presentation-validator/blob/main/schema/iiif_3_0.json) で検証した。Manifestから取り出した撮影対象2群・画像10件と、それぞれの `seeAlso` 対応表も一致する。Choiceの切替操作は公式UV4とNIHU設置版で比較した。注釈の挙動は別途確認する。
 
 NIHU設置版ビューアはv3 Canvasからサムネイルの画像サービスを推定できず、画像IDが欠けた `/full/200,/0/default.jpg` を要求した。v3サンプルではManifest、Canvas、Choice内の各画像に `thumbnail` を明示し、NIHU Image APIの絶対URLを指定する。
 

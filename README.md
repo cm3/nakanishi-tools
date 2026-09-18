@@ -2,7 +2,7 @@
 
 NIHU の IIIF Image API を使いながら、別ホストの Presentation API 2 / 3 Manifest で「同じ面の別撮影画像」を表す試験です。画像ファイルはこのリポジトリに置きません。[構造化パターンの比較](docs/patterns.md)に開発者向けの取得経路を記載しています。
 
-同じ面の複数撮影画像で領域アノテーションを使う用途には、**v3 Choiceを第一候補**とします。表面・裏面を各1 Canvasにして、各面の5撮影画像をそのCanvas内に置く構造です。ビューアのページ表示は2枚でも、Manifestには計10画像が入っています。現行NIHU画面では撮影方式の切替操作が見つからないため、[公式UV4での試験](https://uv-v4.netlify.app/#?manifest=https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/manifest-v3-choice.json)と利用側の対応確認が必要です。v2 Rangeとv3 Rangeは各画像が別Canvasになるため、注釈を別撮影画像にも表示するには利用側の対応付けが必要です。前提と制約は[推奨理由](docs/patterns.md#推奨-アノテーション利用には-v3-choice)を参照してください。
+同じ面の複数撮影画像で領域アノテーションを使う用途には、**v3 Choiceを第一候補**とします。表面・裏面を各1 Canvasにして、各面の5撮影画像をそのCanvas内に置く構造です。ビューアのページ表示は2枚でも、Manifestには計10画像が入っています。2026-09-18の確認では[公式UV4](https://uv-v4.netlify.app/#?manifest=https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/manifest-v3-choice.json)で撮影方式を切り替えられ、NIHU設置版では切り替えられませんでした。NIHU設置版の正確な版番号と、注釈エディタ側のChoice対応は未確認です。v2 Rangeとv3 Rangeは各画像が別Canvasになるため、注釈を別撮影画像にも表示するには利用側の対応付けが必要です。前提と制約は[推奨理由](docs/patterns.md#推奨-アノテーション利用には-v3-choice)を参照してください。
 
 ## 内容
 
