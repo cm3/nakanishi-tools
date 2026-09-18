@@ -1,0 +1,274 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/manifest-v3-choice.json",
+  "type": "Manifest",
+  "label": {
+    "ja": [
+      "文学書　紙片"
+    ]
+  },
+  "seeAlso": [
+    {
+      "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/images-v3-choice.json",
+      "type": "Dataset",
+      "label": {
+        "ja": [
+          "撮影画像の対応表"
+        ]
+      },
+      "format": "application/json"
+    }
+  ],
+  "items": [
+    {
+      "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/v3-choice/canvas/front",
+      "type": "Canvas",
+      "label": {
+        "ja": [
+          "表面"
+        ]
+      },
+      "width": 3000,
+      "height": 1977,
+      "items": [
+        {
+          "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/v3-choice/page/front",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/v3-choice/annotation/front",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "type": "Choice",
+                "items": [
+                  {
+                    "id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FFront%2F209_F_VL.tif/full/!3000,3000/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "label": {
+                      "ja": [
+                        "VL"
+                      ]
+                    },
+                    "width": 3000,
+                    "height": 1977,
+                    "service": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FFront%2F209_F_VL.tif",
+                        "type": "ImageService2",
+                        "profile": "http://iiif.io/api/image/2/level2.json"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FFront%2F209_F_IR.tif/full/!3000,3000/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "label": {
+                      "ja": [
+                        "IR"
+                      ]
+                    },
+                    "width": 3000,
+                    "height": 1977,
+                    "service": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FFront%2F209_F_IR.tif",
+                        "type": "ImageService2",
+                        "profile": "http://iiif.io/api/image/2/level2.json"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FFront%2F209_F_UVF.tif/full/!3000,3000/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "label": {
+                      "ja": [
+                        "UVF"
+                      ]
+                    },
+                    "width": 3000,
+                    "height": 1977,
+                    "service": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FFront%2F209_F_UVF.tif",
+                        "type": "ImageService2",
+                        "profile": "http://iiif.io/api/image/2/level2.json"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FFront%2F209_F_PLwDL.tif/full/!3000,3000/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "label": {
+                      "ja": [
+                        "PLwDL"
+                      ]
+                    },
+                    "width": 3000,
+                    "height": 1977,
+                    "service": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FFront%2F209_F_PLwDL.tif",
+                        "type": "ImageService2",
+                        "profile": "http://iiif.io/api/image/2/level2.json"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FFront%2F209_F_PLwoDL.tif/full/!3000,3000/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "label": {
+                      "ja": [
+                        "PLwoDL"
+                      ]
+                    },
+                    "width": 3000,
+                    "height": 1977,
+                    "service": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FFront%2F209_F_PLwoDL.tif",
+                        "type": "ImageService2",
+                        "profile": "http://iiif.io/api/image/2/level2.json"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "target": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/v3-choice/canvas/front"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/v3-choice/canvas/back",
+      "type": "Canvas",
+      "label": {
+        "ja": [
+          "裏面"
+        ]
+      },
+      "width": 3000,
+      "height": 1982,
+      "items": [
+        {
+          "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/v3-choice/page/back",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/v3-choice/annotation/back",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "type": "Choice",
+                "items": [
+                  {
+                    "id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FBack%2F209_B_VL.tif/full/!3000,3000/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "label": {
+                      "ja": [
+                        "VL"
+                      ]
+                    },
+                    "width": 3000,
+                    "height": 1982,
+                    "service": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FBack%2F209_B_VL.tif",
+                        "type": "ImageService2",
+                        "profile": "http://iiif.io/api/image/2/level2.json"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FBack%2F209_B_IR.tif/full/!3000,3000/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "label": {
+                      "ja": [
+                        "IR"
+                      ]
+                    },
+                    "width": 3000,
+                    "height": 1982,
+                    "service": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FBack%2F209_B_IR.tif",
+                        "type": "ImageService2",
+                        "profile": "http://iiif.io/api/image/2/level2.json"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FBack%2F209_B_UVF.tif/full/!3000,3000/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "label": {
+                      "ja": [
+                        "UVF"
+                      ]
+                    },
+                    "width": 3000,
+                    "height": 1982,
+                    "service": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FBack%2F209_B_UVF.tif",
+                        "type": "ImageService2",
+                        "profile": "http://iiif.io/api/image/2/level2.json"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FBack%2F209_B_PLwDL.tif/full/!3000,3000/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "label": {
+                      "ja": [
+                        "PLwDL"
+                      ]
+                    },
+                    "width": 3000,
+                    "height": 1982,
+                    "service": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FBack%2F209_B_PLwDL.tif",
+                        "type": "ImageService2",
+                        "profile": "http://iiif.io/api/image/2/level2.json"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FBack%2F209_B_PLwoDL.tif/full/!3000,3000/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "label": {
+                      "ja": [
+                        "PLwoDL"
+                      ]
+                    },
+                    "width": 3000,
+                    "height": 1982,
+                    "service": [
+                      {
+                        "id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FBack%2F209_B_PLwoDL.tif",
+                        "type": "ImageService2",
+                        "profile": "http://iiif.io/api/image/2/level2.json"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "target": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/v3-choice/canvas/back"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

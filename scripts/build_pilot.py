@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a Presentation 2 pilot Manifest from one NIHU registration CSV row."""
+"""Build comparable Presentation 2 and 3 manifests from one NIHU CSV row."""
 
 import argparse
 import csv
@@ -49,6 +49,148 @@ def image_entry(encoded_path: str, dirname: str) -> dict:
         "source_width": width,
         "source_height": height,
     }
+
+
+def language(value: str) -> dict[str, list[str]]:
+    return {"ja": [value]}
+
+
+def v3_image(image: dict) -> dict:
+    return {
+        "id": image["image_url"],
+        "type": "Image",
+        "format": "image/jpeg",
+        "label": language(image["modality"]),
+        "width": image["width"],
+        "height": image["height"],
+        "service": [{
+            "id": image["service_id"],
+            "type": "ImageService2",
+            "profile": "http://iiif.io/api/image/2/level2.json",
+        }],
+    }
+
+
+def v3_canvas(base: str, canvas_id: str, label: str, body: dict,
+              width: int, height: int) -> dict:
+    slug = canvas_id.rsplit("/", 1)[-1]
+    return {
+        "id": canvas_id,
+        "type": "Canvas",
+        "label": language(label),
+        "width": width,
+        "height": height,
+        "items": [{
+            "id": f"{base}/page/{slug}",
+            "type": "AnnotationPage",
+            "items": [{
+                "id": f"{base}/annotation/{slug}",
+                "type": "Annotation",
+                "motivation": "painting",
+                "body": body,
+                "target": canvas_id,
+            }],
+        }],
+    }
+
+
+def v3_manifest(base: str, filename: str, title: str, mapping_name: str,
+                canvases: list[dict], structures: list[dict] | None = None) -> dict:
+    manifest = {
+        "@context": "http://iiif.io/api/presentation/3/context.json",
+        "id": f"{base}/{filename}",
+        "type": "Manifest",
+        "label": language(title),
+        "seeAlso": [{
+            "id": f"{base}/{mapping_name}",
+            "type": "Dataset",
+            "label": language("撮影画像の対応表"),
+            "format": "application/json",
+        }],
+        "items": canvases,
+    }
+    if structures:
+        manifest["structures"] = structures
+    return manifest
+
+
+def build_v3_patterns(base: str, title: str, object_id: str,
+                      images: list[dict]) -> list[tuple[str, dict]]:
+    range_base = f"{base}/v3-ranges"
+    choice_base = f"{base}/v3-choice"
+    range_canvases = []
+    range_rows = []
+    choice_canvases = []
+    choice_rows = []
+    side_ranges = []
+    for side in SIDES:
+        side_images = sorted(
+            (image for image in images if image["side"] == side),
+            key=lambda image: MODALITIES.index(image["modality"]),
+        )
+        if not side_images:
+            continue
+        range_ids = []
+        choice_canvas_id = f"{choice_base}/canvas/{side.lower()}"
+        for image in side_images:
+            canvas_id = f"{range_base}/canvas/{side.lower()}-{image['modality'].lower()}"
+            range_ids.append(canvas_id)
+            range_canvases.append(v3_canvas(
+                range_base, canvas_id,
+                f"{SIDES[side]}・{image['modality']}", v3_image(image),
+                image["width"], image["height"],
+            ))
+            common = {
+                "view_id": side.lower(),
+                "modality_code": image["modality"],
+                "image_service_id": image["service_id"],
+                "is_default": image["modality"] == "VL",
+            }
+            range_rows.append({"canvas_id": canvas_id, **common})
+            choice_rows.append({"canvas_id": choice_canvas_id, **common})
+        choice_canvases.append(v3_canvas(
+            choice_base, choice_canvas_id, SIDES[side],
+            {"type": "Choice", "items": [v3_image(image) for image in side_images]},
+            max(image["width"] for image in side_images),
+            max(image["height"] for image in side_images),
+        ))
+        side_ranges.append({
+            "id": f"{range_base}/range/{side.lower()}",
+            "type": "Range",
+            "label": language(SIDES[side]),
+            "items": [{"id": canvas_id, "type": "Canvas"} for canvas_id in range_ids],
+        })
+
+    range_manifest = v3_manifest(
+        base, "manifest-v3-ranges.json", title, "images-v3-ranges.json",
+        range_canvases,
+        [{
+            "id": f"{range_base}/range/top",
+            "type": "Range",
+            "label": language("撮影対象"),
+            "items": side_ranges,
+        }],
+    )
+    choice_manifest = v3_manifest(
+        base, "manifest-v3-choice.json", title, "images-v3-choice.json",
+        choice_canvases,
+    )
+    return [
+        ("manifest-v3-ranges.json", range_manifest),
+        ("images-v3-ranges.json", {
+            "schema_version": 1,
+            "object_id": object_id,
+            "manifest_id": range_manifest["id"],
+            "images": range_rows,
+        }),
+        ("manifest-v3-choice.json", choice_manifest),
+        ("images-v3-choice.json", {
+            "schema_version": 1,
+            "object_id": object_id,
+            "manifest_id": choice_manifest["id"],
+            "images": choice_rows,
+        }),
+    ]
 
 
 def main() -> None:
@@ -166,11 +308,16 @@ def main() -> None:
         "images": image_rows,
     }
     args.output.mkdir(parents=True, exist_ok=True)
-    for name, data in [("manifest.json", manifest), ("images.json", mapping)]:
+    outputs = [("manifest.json", manifest), ("images.json", mapping)]
+    outputs.extend(build_v3_patterns(
+        base, record["field_title"] or record["title"],
+        record["field_identifier"], images,
+    ))
+    for name, data in outputs:
         (args.output / name).write_text(
             json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
-    print(f"Wrote {len(canvases)} canvases and {len(images)} images to {args.output}")
+    print(f"Wrote 3 manifests for {len(images)} images to {args.output}")
 
 
 if __name__ == "__main__":
