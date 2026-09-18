@@ -4,7 +4,7 @@
   "manifest_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/manifest.json",
   "images": [
     {
-      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/canvas/front",
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/canvas/front-vl",
       "image_service_id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FFront%2F209_F_VL.tif",
       "path": "209/Front/209_F_VL.tif",
       "view_id": "front",
@@ -12,7 +12,7 @@
       "is_default": true
     },
     {
-      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/canvas/front",
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/canvas/front-ir",
       "image_service_id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FFront%2F209_F_IR.tif",
       "path": "209/Front/209_F_IR.tif",
       "view_id": "front",
@@ -20,7 +20,7 @@
       "is_default": false
     },
     {
-      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/canvas/front",
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/canvas/front-uvf",
       "image_service_id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FFront%2F209_F_UVF.tif",
       "path": "209/Front/209_F_UVF.tif",
       "view_id": "front",
@@ -28,7 +28,7 @@
       "is_default": false
     },
     {
-      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/canvas/front",
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/canvas/front-plwdl",
       "image_service_id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FFront%2F209_F_PLwDL.tif",
       "path": "209/Front/209_F_PLwDL.tif",
       "view_id": "front",
@@ -36,7 +36,7 @@
       "is_default": false
     },
     {
-      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/canvas/front",
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/canvas/front-plwodl",
       "image_service_id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FFront%2F209_F_PLwoDL.tif",
       "path": "209/Front/209_F_PLwoDL.tif",
       "view_id": "front",
@@ -44,7 +44,7 @@
       "is_default": false
     },
     {
-      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/canvas/back",
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/canvas/back-vl",
       "image_service_id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FBack%2F209_B_VL.tif",
       "path": "209/Back/209_B_VL.tif",
       "view_id": "back",
@@ -52,7 +52,7 @@
       "is_default": true
     },
     {
-      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/canvas/back",
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/canvas/back-ir",
       "image_service_id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FBack%2F209_B_IR.tif",
       "path": "209/Back/209_B_IR.tif",
       "view_id": "back",
@@ -60,7 +60,7 @@
       "is_default": false
     },
     {
-      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/canvas/back",
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/canvas/back-uvf",
       "image_service_id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FBack%2F209_B_UVF.tif",
       "path": "209/Back/209_B_UVF.tif",
       "view_id": "back",
@@ -68,7 +68,7 @@
       "is_default": false
     },
     {
-      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/canvas/back",
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/canvas/back-plwdl",
       "image_service_id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FBack%2F209_B_PLwDL.tif",
       "path": "209/Back/209_B_PLwDL.tif",
       "view_id": "back",
@@ -76,7 +76,7 @@
       "is_default": false
     },
     {
-      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/canvas/back",
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/canvas/back-plwodl",
       "image_service_id": "https://iiif.nihu.jp/iiif/2/minpaku_nakanishi_test%2F209%2FBack%2F209_B_PLwoDL.tif",
       "path": "209/Back/209_B_PLwoDL.tif",
       "view_id": "back",

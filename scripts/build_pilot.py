@@ -74,14 +74,11 @@ def main() -> None:
     canvases = []
     image_rows = []
     for side in SIDES:
-        choices = [image for image in images if image["side"] == side]
-        if not choices:
-            continue
-        choices.sort(key=lambda image: MODALITIES.index(image["modality"]))
-        canvas_id = f"{base}/canvas/{side.lower()}"
-        resources = []
-        for image in choices:
-            resources.append({
+        side_images = [image for image in images if image["side"] == side]
+        side_images.sort(key=lambda image: MODALITIES.index(image["modality"]))
+        for image in side_images:
+            canvas_id = f"{base}/canvas/{side.lower()}-{image['modality'].lower()}"
+            resource = {
                 "@id": image["image_url"],
                 "@type": "dctypes:Image",
                 "format": "image/jpeg",
@@ -93,6 +90,24 @@ def main() -> None:
                     "@id": image["service_id"],
                     "profile": "http://iiif.io/api/image/2/level2.json",
                 },
+            }
+            canvases.append({
+                "@id": canvas_id,
+                "@type": "sc:Canvas",
+                "label": f"{SIDES[side]}・{image['modality']}",
+                "width": image["width"],
+                "height": image["height"],
+                "metadata": [
+                    {"label": "撮影対象", "value": SIDES[side]},
+                    {"label": "撮影方式", "value": image["modality"]},
+                ],
+                "images": [{
+                    "@id": f"{base}/annotation/{side.lower()}-{image['modality'].lower()}",
+                    "@type": "oa:Annotation",
+                    "motivation": "sc:painting",
+                    "on": canvas_id,
+                    "resource": resource,
+                }],
             })
             image_rows.append({
                 "canvas_id": canvas_id,
@@ -102,26 +117,6 @@ def main() -> None:
                 "modality_code": image["modality"],
                 "is_default": image["modality"] == "VL",
             })
-        canvas_width = max(image["width"] for image in choices)
-        canvas_height = max(image["height"] for image in choices)
-        canvases.append({
-            "@id": canvas_id,
-            "@type": "sc:Canvas",
-            "label": SIDES[side],
-            "width": canvas_width,
-            "height": canvas_height,
-            "images": [{
-                "@id": f"{base}/annotation/{side.lower()}",
-                "@type": "oa:Annotation",
-                "motivation": "sc:painting",
-                "on": canvas_id,
-                "resource": {
-                    "@type": "oa:Choice",
-                    "default": resources[0],
-                    "item": resources[1:],
-                },
-            }],
-        })
 
     manifest = {
         "@context": "http://iiif.io/api/presentation/2/context.json",
@@ -130,7 +125,7 @@ def main() -> None:
         "label": record["field_title"] or record["title"],
         "metadata": [
             {"label": "資料ID", "value": record["field_identifier"]},
-            {"label": "撮影画像", "value": "同じ面の別撮影画像を切り替えられます"},
+            {"label": "撮影画像", "value": "表裏と撮影方式を各Canvasのラベルに示します"},
         ],
         "seeAlso": {
             "@id": f"{base}/images.json",
@@ -142,6 +137,27 @@ def main() -> None:
             "label": "表面・裏面",
             "canvases": canvases,
         }],
+        "structures": [
+            {
+                "@id": f"{base}/range/top",
+                "@type": "sc:Range",
+                "label": "撮影対象",
+                "viewingHint": "top",
+                "ranges": [f"{base}/range/{side.lower()}" for side in SIDES],
+            },
+            *[
+                {
+                    "@id": f"{base}/range/{side.lower()}",
+                    "@type": "sc:Range",
+                    "label": SIDES[side],
+                    "canvases": [
+                        canvas["@id"] for canvas in canvases
+                        if canvas["@id"].split("/canvas/")[-1].startswith(side.lower() + "-")
+                    ],
+                }
+                for side in SIDES
+            ],
+        ],
     }
     mapping = {
         "schema_version": 1,
