@@ -55,6 +55,21 @@ def language(value: str) -> dict[str, list[str]]:
     return {"ja": [value]}
 
 
+def v3_thumbnail(image: dict) -> dict:
+    return {
+        "id": f"{image['service_id']}/full/200,/0/default.jpg",
+        "type": "Image",
+        "format": "image/jpeg",
+        "width": 200,
+        "height": round(image["source_height"] * 200 / image["source_width"]),
+        "service": [{
+            "id": image["service_id"],
+            "type": "ImageService2",
+            "profile": "http://iiif.io/api/image/2/level2.json",
+        }],
+    }
+
+
 def v3_image(image: dict) -> dict:
     return {
         "id": image["image_url"],
@@ -63,6 +78,7 @@ def v3_image(image: dict) -> dict:
         "label": language(image["modality"]),
         "width": image["width"],
         "height": image["height"],
+        "thumbnail": [v3_thumbnail(image)],
         "service": [{
             "id": image["service_id"],
             "type": "ImageService2",
@@ -72,7 +88,7 @@ def v3_image(image: dict) -> dict:
 
 
 def v3_canvas(base: str, canvas_id: str, label: str, body: dict,
-              width: int, height: int) -> dict:
+              width: int, height: int, thumbnail: dict) -> dict:
     slug = canvas_id.rsplit("/", 1)[-1]
     return {
         "id": canvas_id,
@@ -80,6 +96,7 @@ def v3_canvas(base: str, canvas_id: str, label: str, body: dict,
         "label": language(label),
         "width": width,
         "height": height,
+        "thumbnail": [thumbnail],
         "items": [{
             "id": f"{base}/page/{slug}",
             "type": "AnnotationPage",
@@ -101,6 +118,7 @@ def v3_manifest(base: str, filename: str, title: str, mapping_name: str,
         "id": f"{base}/{filename}",
         "type": "Manifest",
         "label": language(title),
+        "thumbnail": canvases[0]["thumbnail"],
         "seeAlso": [{
             "id": f"{base}/{mapping_name}",
             "type": "Dataset",
@@ -138,7 +156,7 @@ def build_v3_patterns(base: str, title: str, object_id: str,
             range_canvases.append(v3_canvas(
                 range_base, canvas_id,
                 f"{SIDES[side]}・{image['modality']}", v3_image(image),
-                image["width"], image["height"],
+                image["width"], image["height"], v3_thumbnail(image),
             ))
             common = {
                 "view_id": side.lower(),
@@ -153,6 +171,7 @@ def build_v3_patterns(base: str, title: str, object_id: str,
             {"type": "Choice", "items": [v3_image(image) for image in side_images]},
             max(image["width"] for image in side_images),
             max(image["height"] for image in side_images),
+            v3_thumbnail(side_images[0]),
         ))
         side_ranges.append({
             "id": f"{range_base}/range/{side.lower()}",

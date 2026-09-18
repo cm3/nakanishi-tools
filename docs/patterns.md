@@ -14,6 +14,8 @@
 
 v3の2ファイルは [IIIF Presentation Validatorのv3 JSON Schema](https://github.com/IIIF/presentation-validator/blob/main/schema/iiif_3_0.json) で検証した。Manifestから取り出した撮影対象2群・画像10件と、それぞれの `seeAlso` 対応表も一致する。ビューアの表示と切替操作は別途確認する。
 
+NIHU設置版ビューアはv3 Canvasからサムネイルの画像サービスを推定できず、画像IDが欠けた `/full/200,/0/default.jpg` を要求した。v3サンプルではManifest、Canvas、Choice内の各画像に `thumbnail` を明示し、NIHU Image APIの絶対URLを指定する。
+
 各Manifestの `seeAlso` に、対応する `images*.json` を指定した。そこでは `view_id`（`front` / `back`）、`modality_code`（`VL` 等）、`image_service_id` を明示している。IIIFの `label` や `metadata` は表示用なので、安定したコードとして扱う場合はこの対応表を使う。`scripts/inspect_patterns.py` は各Manifestから標準のRangeまたはChoiceをたどり、撮影対象ごとの画像サービスIDを取り出す利用例。
 
 ## 利用開発者向けの確認点
