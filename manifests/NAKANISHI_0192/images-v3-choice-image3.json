@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "object_id": "NAKANISHI_0192",
+  "manifest_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0192/manifest-v3-choice-image3.json",
+  "note": "Choice Manifestの検証・一覧処理用索引。Manifestからは参照しない。",
+  "images": [
+    {
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0192/v3-choice-image3/canvas/front",
+      "view_id": "Front",
+      "modality_code": "VL",
+      "image_service_id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F192%2FFront%2F192_F_VL.tif",
+      "source_path": "192/Front/192_F_VL.tif",
+      "source_modality_note": null,
+      "is_default": true
+    },
+    {
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0192/v3-choice-image3/canvas/front",
+      "view_id": "Front",
+      "modality_code": "PLwDL",
+      "image_service_id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F192%2FFront%2F192_F_PLwDL.tif",
+      "source_path": "192/Front/192_F_PLwDL.tif",
+      "source_modality_note": null,
+      "is_default": false
+    },
+    {
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0192/v3-choice-image3/canvas/front",
+      "view_id": "Front",
+      "modality_code": "PLwoDL",
+      "image_service_id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F192%2FFront%2F192_F_PLwoDL.tif",
+      "source_path": "192/Front/192_F_PLwoDL.tif",
+      "source_modality_note": null,
+      "is_default": false
+    },
+    {
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0192/v3-choice-image3/canvas/front",
+      "view_id": "Front",
+      "modality_code": "IR",
+      "image_service_id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F192%2FFront%2F192_F_IR.tif",
+      "source_path": "192/Front/192_F_IR.tif",
+      "source_modality_note": null,
+      "is_default": false
+    },
+    {
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0192/v3-choice-image3/canvas/front",
+      "view_id": "Front",
+      "modality_code": "UVF",
+      "image_service_id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F192%2FFront%2F192_F_UVF.tif",
+      "source_path": "192/Front/192_F_UVF.tif",
+      "source_modality_note": null,
+      "is_default": false
+    },
+    {
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0192/v3-choice-image3/canvas/back",
+      "view_id": "Back",
+      "modality_code": "VL",
+      "image_service_id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F192%2FBack%2F192_B_VL.tif",
+      "source_path": "192/Back/192_B_VL.tif",
+      "source_modality_note": null,
+      "is_default": true
+    },
+    {
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0192/v3-choice-image3/canvas/back",
+      "view_id": "Back",
+      "modality_code": "PLwDL",
+      "image_service_id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F192%2FBack%2F192_B_PLwDL.tif",
+      "source_path": "192/Back/192_B_PLwDL.tif",
+      "source_modality_note": null,
+      "is_default": false
+    },
+    {
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0192/v3-choice-image3/canvas/back",
+      "view_id": "Back",
+      "modality_code": "PLwoDL",
+      "image_service_id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F192%2FBack%2F192_B_PLwoDL.tif",
+      "source_path": "192/Back/192_B_PLwoDL.tif",
+      "source_modality_note": null,
+      "is_default": false
+    },
+    {
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0192/v3-choice-image3/canvas/back",
+      "view_id": "Back",
+      "modality_code": "IR",
+      "image_service_id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F192%2FBack%2F192_B_IR.tif",
+      "source_path": "192/Back/192_B_IR.tif",
+      "source_modality_note": null,
+      "is_default": false
+    },
+    {
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0192/v3-choice-image3/canvas/back",
+      "view_id": "Back",
+      "modality_code": "UVF",
+      "image_service_id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F192%2FBack%2F192_B_UVF.tif",
+      "source_path": "192/Back/192_B_UVF.tif",
+      "source_modality_note": null,
+      "is_default": false
+    }
+  ]
+}

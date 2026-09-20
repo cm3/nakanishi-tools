@@ -2,6 +2,8 @@
 
 NIHU の IIIF Image API を使いながら、別ホストの Presentation API 2 / 3 Manifest で「同じ面の別撮影画像」を表す試験です。画像ファイルはこのリポジトリに置きません。[構造化パターンの比較](docs/patterns.md)に開発者向けの取得経路を記載しています。
 
+実運用候補は、中西資料9件をPresentation API 3のChoiceとNIHU Image API 3で表した `manifests/NAKANISHI_*/manifest-v3-choice-image3.json` です。各資料は撮影面ごとに1 Canvasを持ち、VL・PLwDL・PLwoDL・IR・UVFを `Choice.items` に格納します。Choiceの解釈に必要な情報はManifest内に含めています。
+
 同じ面の複数撮影画像で領域アノテーションを使う用途には、**v3 Choiceを第一候補**とします。表面・裏面を各1 Canvasにして、各面の5撮影画像をそのCanvas内に置く構造です。ビューアのページ表示は2枚でも、Manifestには計10画像が入っています。2026-09-18の確認では[公式UV4](https://uv-v4.netlify.app/#?manifest=https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/manifest-v3-choice.json)で撮影方式を切り替えられ、NIHU設置版では切り替えられませんでした。NIHU設置版の正確な版番号と、注釈エディタ側のChoice対応は未確認です。v2 Rangeとv3 Rangeは各画像が別Canvasになるため、注釈を別撮影画像にも表示するには利用側の対応付けが必要です。前提と制約は[推奨理由](docs/patterns.md#推奨-アノテーション利用には-v3-choice)を参照してください。
 
 ## 内容
@@ -16,6 +18,7 @@ NIHU の IIIF Image API を使いながら、別ホストの Presentation API 2 
 - `registration/0209-v3-ranges-test.tsv`、`0209-v3-choice-test.tsv`: v3の2パターンを別IDで試す最小限の登録用 TSV。親プロジェクトの `work/2026-09-18-external-manifest-pilot/` には元の34列を維持したCSVもある。
 - 3件の `title` は公開一覧で区別できるよう、`【IIIF比較実験｜v2 Range】`、`【IIIF比較実験｜v3 Range】`、`【IIIF比較実験｜v3 Choice】` で始める。`field_title` の原資料名は共通。
 - `scripts/build_pilot.py`: 元の登録CSVと画像API `info.json` から上記JSONを再生成。
+- `scripts/build_collection_choice3.py`: 元の9件登録CSVから9件のv3 Choice + Image API 3 Manifestを生成。80画像の `info.json` を検証し、撮影方式の例外2件も明示的に正規化する。
 - `scripts/rebuild.sh`: 親プロジェクトの作業用CSVを参照して再生成する補助スクリプト。
 
 ## 公開と試験

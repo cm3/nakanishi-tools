@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "object_id": "NAKANISHI_0213",
+  "manifest_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0213/manifest-v3-choice-image3.json",
+  "note": "Choice Manifestの検証・一覧処理用索引。Manifestからは参照しない。",
+  "images": [
+    {
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0213/v3-choice-image3/canvas/00",
+      "view_id": "00",
+      "modality_code": "VL",
+      "image_service_id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F213%2F00%2F213_00_VL.tif",
+      "source_path": "213/00/213_00_VL.tif",
+      "source_modality_note": null,
+      "is_default": true
+    },
+    {
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0213/v3-choice-image3/canvas/00",
+      "view_id": "00",
+      "modality_code": "PLwDL",
+      "image_service_id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F213%2F00%2F213_00_PLwDL.tif",
+      "source_path": "213/00/213_00_PLwDL.tif",
+      "source_modality_note": null,
+      "is_default": false
+    },
+    {
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0213/v3-choice-image3/canvas/00",
+      "view_id": "00",
+      "modality_code": "PLwoDL",
+      "image_service_id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F213%2F00%2F213_00_PLwoDL.tif",
+      "source_path": "213/00/213_00_PLwoDL.tif",
+      "source_modality_note": null,
+      "is_default": false
+    },
+    {
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0213/v3-choice-image3/canvas/00",
+      "view_id": "00",
+      "modality_code": "IR",
+      "image_service_id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F213%2F00%2F213_00_IR.tif",
+      "source_path": "213/00/213_00_IR.tif",
+      "source_modality_note": null,
+      "is_default": false
+    },
+    {
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0213/v3-choice-image3/canvas/02",
+      "view_id": "02",
+      "modality_code": "VL",
+      "image_service_id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F213%2F02%2F213_02_VL.tif",
+      "source_path": "213/02/213_02_VL.tif",
+      "source_modality_note": null,
+      "is_default": true
+    },
+    {
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0213/v3-choice-image3/canvas/02",
+      "view_id": "02",
+      "modality_code": "PLwDL",
+      "image_service_id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F213%2F02%2F213_02_PLwDL.tif",
+      "source_path": "213/02/213_02_PLwDL.tif",
+      "source_modality_note": null,
+      "is_default": false
+    },
+    {
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0213/v3-choice-image3/canvas/02",
+      "view_id": "02",
+      "modality_code": "PLwoDL",
+      "image_service_id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F213%2F02%2F213_02_PLwoDL.tif",
+      "source_path": "213/02/213_02_PLwoDL.tif",
+      "source_modality_note": null,
+      "is_default": false
+    },
+    {
+      "canvas_id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0213/v3-choice-image3/canvas/02",
+      "view_id": "02",
+      "modality_code": "IR",
+      "image_service_id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F213%2F02%2F213_02.tif",
+      "source_path": "213/02/213_02.tif",
+      "source_modality_note": "方式コードなし（撮影標識のIRから判定）",
+      "is_default": false
+    }
+  ]
+}
