@@ -1,4 +1,4 @@
-# 中西資料 IIIF Manifest 試験
+# 中西コレクション IIIF マニフェスト実験
 
 NIHU の IIIF Image API を使いながら、別ホストの Presentation API 2 / 3 Manifest で「同じ面の別撮影画像」を表す試験です。画像ファイルはこのリポジトリに置きません。[構造化パターンの比較](docs/patterns.md)に開発者向けの取得経路を記載しています。
 
