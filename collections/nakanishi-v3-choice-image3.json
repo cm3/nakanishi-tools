@@ -1,0 +1,242 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "https://cm3.github.io/nakanishi-tools/collections/nakanishi-v3-choice-image3.json",
+  "type": "Collection",
+  "label": {
+    "ja": [
+      "中西コレクション IIIF マニフェスト実験"
+    ]
+  },
+  "summary": {
+    "ja": [
+      "同一資料の別撮影画像をChoiceで表現した、9資料のIIIF Presentation 3 Manifest一覧"
+    ]
+  },
+  "items": [
+    {
+      "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0154/manifest-v3-choice-image3.json",
+      "type": "Manifest",
+      "label": {
+        "ja": [
+          "聖句集　羊皮紙"
+        ]
+      },
+      "thumbnail": [
+        {
+          "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F154%2FFront%2F154_F_VL.tif/full/200,/0/default.jpg",
+          "type": "Image",
+          "format": "image/jpeg",
+          "width": 200,
+          "height": 131,
+          "service": [
+            {
+              "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F154%2FFront%2F154_F_VL.tif",
+              "type": "ImageService3",
+              "profile": "level2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0155/manifest-v3-choice-image3.json",
+      "type": "Manifest",
+      "label": {
+        "ja": [
+          "死者の書　布"
+        ]
+      },
+      "thumbnail": [
+        {
+          "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F155%2FFront%2F155_F_VL.tif/full/200,/0/default.jpg",
+          "type": "Image",
+          "format": "image/jpeg",
+          "width": 200,
+          "height": 130,
+          "service": [
+            {
+              "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F155%2FFront%2F155_F_VL.tif",
+              "type": "ImageService3",
+              "profile": "level2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0157/manifest-v3-choice-image3.json",
+      "type": "Manifest",
+      "label": {
+        "ja": [
+          "祈祷書　牛皮紙本"
+        ]
+      },
+      "thumbnail": [
+        {
+          "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F157%2F00%2F157_00_VL.tif/full/200,/0/default.jpg",
+          "type": "Image",
+          "format": "image/jpeg",
+          "width": 200,
+          "height": 133,
+          "service": [
+            {
+              "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F157%2F00%2F157_00_VL.tif",
+              "type": "ImageService3",
+              "profile": "level2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0164/manifest-v3-choice-image3.json",
+      "type": "Manifest",
+      "label": {
+        "ja": [
+          "聖書　冊子本"
+        ]
+      },
+      "thumbnail": [
+        {
+          "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F164%2F000%2F164_000_VL.tif/full/200,/0/default.jpg",
+          "type": "Image",
+          "format": "image/jpeg",
+          "width": 200,
+          "height": 133,
+          "service": [
+            {
+              "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F164%2F000%2F164_000_VL.tif",
+              "type": "ImageService3",
+              "profile": "level2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0186/manifest-v3-choice-image3.json",
+      "type": "Manifest",
+      "label": {
+        "ja": [
+          "宗教書　ノート"
+        ]
+      },
+      "thumbnail": [
+        {
+          "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F186%2F000%2F186_000_VL.tif/full/200,/0/default.jpg",
+          "type": "Image",
+          "format": "image/jpeg",
+          "width": 200,
+          "height": 131,
+          "service": [
+            {
+              "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F186%2F000%2F186_000_VL.tif",
+              "type": "ImageService3",
+              "profile": "level2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0192/manifest-v3-choice-image3.json",
+      "type": "Manifest",
+      "label": {
+        "ja": [
+          "聖書　鹿皮"
+        ]
+      },
+      "thumbnail": [
+        {
+          "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F192%2FFront%2F192_F_VL.tif/full/200,/0/default.jpg",
+          "type": "Image",
+          "format": "image/jpeg",
+          "width": 200,
+          "height": 132,
+          "service": [
+            {
+              "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F192%2FFront%2F192_F_VL.tif",
+              "type": "ImageService3",
+              "profile": "level2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0201/manifest-v3-choice-image3.json",
+      "type": "Manifest",
+      "label": {
+        "ja": [
+          "文学書　冊子本"
+        ]
+      },
+      "thumbnail": [
+        {
+          "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F201%2F001%2F201_001_VL.tif/full/200,/0/default.jpg",
+          "type": "Image",
+          "format": "image/jpeg",
+          "width": 200,
+          "height": 130,
+          "service": [
+            {
+              "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F201%2F001%2F201_001_VL.tif",
+              "type": "ImageService3",
+              "profile": "level2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/manifest-v3-choice-image3.json",
+      "type": "Manifest",
+      "label": {
+        "ja": [
+          "文学書　紙片"
+        ]
+      },
+      "thumbnail": [
+        {
+          "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_VL.tif/full/200,/0/default.jpg",
+          "type": "Image",
+          "format": "image/jpeg",
+          "width": 200,
+          "height": 132,
+          "service": [
+            {
+              "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F209%2FFront%2F209_F_VL.tif",
+              "type": "ImageService3",
+              "profile": "level2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0213/manifest-v3-choice-image3.json",
+      "type": "Manifest",
+      "label": {
+        "ja": [
+          "宗教書　冊子本"
+        ]
+      },
+      "thumbnail": [
+        {
+          "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F213%2F00%2F213_00_VL.tif/full/200,/0/default.jpg",
+          "type": "Image",
+          "format": "image/jpeg",
+          "width": 200,
+          "height": 132,
+          "service": [
+            {
+              "id": "https://iiif.nihu.jp/iiif/3/minpaku_nakanishi_test%2F213%2F00%2F213_00_VL.tif",
+              "type": "ImageService3",
+              "profile": "level2"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

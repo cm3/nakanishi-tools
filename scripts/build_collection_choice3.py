@@ -13,6 +13,7 @@ from urllib.request import urlopen
 IMAGE_API = "https://iiif.nihu.jp/iiif/3"
 MANIFEST_NAME = "manifest-v3-choice-image3.json"
 MAPPING_NAME = "images-v3-choice-image3.json"
+COLLECTION_NAME = "nakanishi-v3-choice-image3.json"
 MODALITIES = ["VL", "PLwDL", "PLwoDL", "IR", "UVF"]
 MODALITY_LABELS = {
     "VL": "可視光",
@@ -198,6 +199,11 @@ def main() -> None:
     parser.add_argument("--csv", type=Path, required=True)
     parser.add_argument("--site-url", default="https://cm3.github.io/nakanishi-tools")
     parser.add_argument("--output-root", type=Path, default=Path("manifests"))
+    parser.add_argument(
+        "--collection-output",
+        type=Path,
+        default=Path("collections") / COLLECTION_NAME,
+    )
     parser.add_argument("--registration-output", type=Path)
     args = parser.parse_args()
 
@@ -217,6 +223,7 @@ def main() -> None:
         by_identifier.setdefault(identifier, []).append(image)
 
     registration_rows = []
+    collection_items = []
     total_images = 0
     for record in records:
         identifier = record["field_identifier"]
@@ -225,12 +232,30 @@ def main() -> None:
         output = args.output_root / identifier
         write_json(output / MANIFEST_NAME, manifest)
         write_json(output / MAPPING_NAME, mapping)
+        collection_items.append({
+            "id": manifest["id"],
+            "type": "Manifest",
+            "label": manifest["label"],
+            "thumbnail": manifest["thumbnail"],
+        })
         total_images += len(images)
 
         registration = record.copy()
         registration["field_manifest"] = manifest["id"]
         registration["field_source"] = manifest["thumbnail"][0]["id"]
         registration_rows.append(registration)
+
+    collection = {
+        "@context": "http://iiif.io/api/presentation/3/context.json",
+        "id": f"{args.site_url.rstrip('/')}/collections/{COLLECTION_NAME}",
+        "type": "Collection",
+        "label": language("中西コレクション IIIF マニフェスト実験"),
+        "summary": language(
+            "同一資料の別撮影画像をChoiceで表現した、9資料のIIIF Presentation 3 Manifest一覧"
+        ),
+        "items": collection_items,
+    }
+    write_json(args.collection_output, collection)
 
     if args.registration_output:
         args.registration_output.parent.mkdir(parents=True, exist_ok=True)
