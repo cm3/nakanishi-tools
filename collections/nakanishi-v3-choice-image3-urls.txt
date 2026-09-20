@@ -1,0 +1,9 @@
+https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0154/manifest-v3-choice-image3.json
+https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0155/manifest-v3-choice-image3.json
+https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0157/manifest-v3-choice-image3.json
+https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0164/manifest-v3-choice-image3.json
+https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0186/manifest-v3-choice-image3.json
+https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0192/manifest-v3-choice-image3.json
+https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0201/manifest-v3-choice-image3.json
+https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/manifest-v3-choice-image3.json
+https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0213/manifest-v3-choice-image3.json

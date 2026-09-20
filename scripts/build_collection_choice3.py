@@ -14,6 +14,7 @@ IMAGE_API = "https://iiif.nihu.jp/iiif/3"
 MANIFEST_NAME = "manifest-v3-choice-image3.json"
 MAPPING_NAME = "images-v3-choice-image3.json"
 COLLECTION_NAME = "nakanishi-v3-choice-image3.json"
+URL_LIST_NAME = "nakanishi-v3-choice-image3-urls.txt"
 MODALITIES = ["VL", "PLwDL", "PLwoDL", "IR", "UVF"]
 MODALITY_LABELS = {
     "VL": "可視光",
@@ -204,6 +205,11 @@ def main() -> None:
         type=Path,
         default=Path("collections") / COLLECTION_NAME,
     )
+    parser.add_argument(
+        "--url-list-output",
+        type=Path,
+        default=Path("collections") / URL_LIST_NAME,
+    )
     parser.add_argument("--registration-output", type=Path)
     args = parser.parse_args()
 
@@ -256,6 +262,11 @@ def main() -> None:
         "items": collection_items,
     }
     write_json(args.collection_output, collection)
+    args.url_list_output.parent.mkdir(parents=True, exist_ok=True)
+    args.url_list_output.write_text(
+        "".join(f"{item['id']}\n" for item in collection_items),
+        encoding="utf-8",
+    )
 
     if args.registration_output:
         args.registration_output.parent.mkdir(parents=True, exist_ok=True)
