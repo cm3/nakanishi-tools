@@ -12,20 +12,10 @@
     h2 { margin-top: 40px; font-size: 1.35rem; }
     p { line-height: 1.7; }
     .links { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0; }
-    .button, button { border: 1px solid #315c9d; border-radius: 7px; padding: 9px 14px; color: #234b87; background: #fff; font: inherit; text-decoration: none; cursor: pointer; }
+    .button { border: 1px solid #315c9d; border-radius: 7px; padding: 9px 14px; color: #234b87; background: #fff; font: inherit; text-decoration: none; cursor: pointer; }
     .button.primary { color: #fff; background: #315c9d; }
-    .manifest-list { display: grid; gap: 14px; padding: 0; list-style: none; }
-    .manifest-list li { padding: 16px; border: 1px solid #d9dde5; border-radius: 10px; background: #fff; }
-    .record { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; margin-bottom: 10px; }
-    .record strong { font-size: 1.05rem; }
-    .record code { color: #5f6368; }
-    .copy-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
-    .copy-row input { min-width: 0; width: 100%; box-sizing: border-box; border: 1px solid #b9c0cc; border-radius: 7px; padding: 10px; color: #303134; background: #fbfcfe; font: 0.9rem ui-monospace, SFMono-Regular, Consolas, monospace; }
-    .copy-row button { min-width: 86px; }
-    .manifest-link { display: inline-block; margin-top: 9px; }
     .note { color: #5f6368; font-size: 0.92rem; }
     footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid #d9dde5; color: #5f6368; }
-    @media (max-width: 620px) { .copy-row { grid-template-columns: 1fr; } .copy-row button { width: 100%; } }
   </style>
 </head>
 <body>
@@ -35,25 +25,16 @@
 
   <div class="links">
     <a class="button primary" href="https://iiif.nihu.jp/database/minpaku_nakanishi_test">NIHU IIIFの資料一覧を開く</a>
-    <a class="button" href="collections/nakanishi-v3-choice-image3.json">9件のIIIF Collectionを開く</a>
-    <a class="button" href="collections/nakanishi-v3-choice-image3-urls.txt" download>Manifest URL一覧をダウンロード</a>
     <a class="button" href="https://github.com/cm3/nakanishi-tools">GitHubリポジトリ</a>
     <a class="button" href="https://github.com/cm3/nakanishi-tools/blob/main/docs/patterns.md">Manifest構造の説明</a>
   </div>
 
-  <h2>9資料のManifest URL</h2>
-  <p class="note">システムから一括利用する場合は、IIIF Collectionまたは一行1URLのテキスト一覧を使用できます。個別に利用する場合は各URLをコピーしてください。</p>
-  <ul class="manifest-list">
-    <li><div class="record"><strong>聖句集　羊皮紙</strong><code>NAKANISHI_0154</code></div><div class="copy-row"><input readonly aria-label="NAKANISHI_0154 Manifest URL" value="https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0154/manifest-v3-choice-image3.json"><button type="button" onclick="copyManifest(this)">コピー</button></div><a class="manifest-link" href="manifests/NAKANISHI_0154/manifest-v3-choice-image3.json">Manifestを開く</a></li>
-    <li><div class="record"><strong>死者の書　布</strong><code>NAKANISHI_0155</code></div><div class="copy-row"><input readonly aria-label="NAKANISHI_0155 Manifest URL" value="https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0155/manifest-v3-choice-image3.json"><button type="button" onclick="copyManifest(this)">コピー</button></div><a class="manifest-link" href="manifests/NAKANISHI_0155/manifest-v3-choice-image3.json">Manifestを開く</a></li>
-    <li><div class="record"><strong>祈祷書　牛皮紙本</strong><code>NAKANISHI_0157</code></div><div class="copy-row"><input readonly aria-label="NAKANISHI_0157 Manifest URL" value="https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0157/manifest-v3-choice-image3.json"><button type="button" onclick="copyManifest(this)">コピー</button></div><a class="manifest-link" href="manifests/NAKANISHI_0157/manifest-v3-choice-image3.json">Manifestを開く</a></li>
-    <li><div class="record"><strong>聖書　冊子本</strong><code>NAKANISHI_0164</code></div><div class="copy-row"><input readonly aria-label="NAKANISHI_0164 Manifest URL" value="https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0164/manifest-v3-choice-image3.json"><button type="button" onclick="copyManifest(this)">コピー</button></div><a class="manifest-link" href="manifests/NAKANISHI_0164/manifest-v3-choice-image3.json">Manifestを開く</a></li>
-    <li><div class="record"><strong>宗教書　ノート</strong><code>NAKANISHI_0186</code></div><div class="copy-row"><input readonly aria-label="NAKANISHI_0186 Manifest URL" value="https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0186/manifest-v3-choice-image3.json"><button type="button" onclick="copyManifest(this)">コピー</button></div><a class="manifest-link" href="manifests/NAKANISHI_0186/manifest-v3-choice-image3.json">Manifestを開く</a></li>
-    <li><div class="record"><strong>聖書　鹿皮</strong><code>NAKANISHI_0192</code></div><div class="copy-row"><input readonly aria-label="NAKANISHI_0192 Manifest URL" value="https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0192/manifest-v3-choice-image3.json"><button type="button" onclick="copyManifest(this)">コピー</button></div><a class="manifest-link" href="manifests/NAKANISHI_0192/manifest-v3-choice-image3.json">Manifestを開く</a></li>
-    <li><div class="record"><strong>文学書　冊子本</strong><code>NAKANISHI_0201</code></div><div class="copy-row"><input readonly aria-label="NAKANISHI_0201 Manifest URL" value="https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0201/manifest-v3-choice-image3.json"><button type="button" onclick="copyManifest(this)">コピー</button></div><a class="manifest-link" href="manifests/NAKANISHI_0201/manifest-v3-choice-image3.json">Manifestを開く</a></li>
-    <li><div class="record"><strong>文学書　紙片</strong><code>NAKANISHI_0209</code></div><div class="copy-row"><input readonly aria-label="NAKANISHI_0209 Manifest URL" value="https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0209/manifest-v3-choice-image3.json"><button type="button" onclick="copyManifest(this)">コピー</button></div><a class="manifest-link" href="manifests/NAKANISHI_0209/manifest-v3-choice-image3.json">Manifestを開く</a></li>
-    <li><div class="record"><strong>宗教書　冊子本</strong><code>NAKANISHI_0213</code></div><div class="copy-row"><input readonly aria-label="NAKANISHI_0213 Manifest URL" value="https://cm3.github.io/nakanishi-tools/manifests/NAKANISHI_0213/manifest-v3-choice-image3.json"><button type="button" onclick="copyManifest(this)">コピー</button></div><a class="manifest-link" href="manifests/NAKANISHI_0213/manifest-v3-choice-image3.json">Manifestを開く</a></li>
-  </ul>
+  <h2>9資料をまとめて利用する</h2>
+  <p class="note">IIIF対応システムではCollectionを、Manifest URLの一括入力では一行1URLのテキスト一覧を使用してください。</p>
+  <div class="links">
+    <a class="button primary" href="collections/nakanishi-v3-choice-image3.json">IIIF Collectionを開く</a>
+    <a class="button" href="collections/nakanishi-v3-choice-image3-urls.txt" download>Manifest URL一覧をダウンロード</a>
+  </div>
 
   <h2>比較用Manifest</h2>
   <ul>
@@ -64,20 +45,5 @@
 
   <footer>画像はNIHU IIIFから配信し、ManifestはこのGitHub Pagesから配信しています。</footer>
 </main>
-<script>
-  async function copyManifest(button) {
-    const input = button.parentElement.querySelector('input');
-    try {
-      await navigator.clipboard.writeText(input.value);
-    } catch (_) {
-      input.select();
-      document.execCommand('copy');
-      input.setSelectionRange(0, 0);
-    }
-    const original = button.textContent;
-    button.textContent = 'コピー済み';
-    window.setTimeout(() => { button.textContent = original; }, 1400);
-  }
-</script>
 </body>
 </html>
